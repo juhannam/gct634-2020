@@ -15,7 +15,7 @@ After you have installed conda, close any open terminals you might have. Then op
 
 1. Create an environment with dependencies specified in env.yml:
     
-   conda env create -f env.yml
+   conda env create -f environment.yaml
 
 2. Activate the new environment:
     
