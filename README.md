@@ -29,7 +29,7 @@ After you have installed conda, close any open terminals you might have. Then op
 
    jupyter notebook 	
 
-5. Go to the "practice" folder and open "practice.ipynb". Pleas make sure that the kernel is set to gct634 from the rightmost of the menu. 
+5. Go to the "practice" folder and open "practice1.ipynb". Pleas make sure that the kernel is set to gct634 from the rightmost of the menu. 
  
 6. To deactivate an active environment, use
     
