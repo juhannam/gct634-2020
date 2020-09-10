@@ -13,7 +13,7 @@ We will use Python throughout the course. For practice session and homework, we 
 
 After you have installed conda, close any open terminals you might have. Then open a new terminal and run the following command:
 
-1. Create an environment with dependencies specified in env.yml:
+1. Create an environment with dependencies specified in environment.yaml:
     
    conda env create -f environment.yaml
 
