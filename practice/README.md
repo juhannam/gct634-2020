@@ -9,7 +9,6 @@ After you have installed conda, close any open terminals you might have. Then op
 1. Create a gct634 environment with python 3.8 and install essential packages
 
    conda create -n gct634 python=3.8 jupyter jupyterlab matplotlib <br>
-   python -m ipykernel install —user —name gct634 
 
 2. Activate the new environment:
 
@@ -23,7 +22,7 @@ After you have installed conda, close any open terminals you might have. Then op
 
    jupyter notebook 	
 
-5. Go to the "practice" folder and open "practice1.ipynb". Pleas make sure that the kernel is set to gct634 from the rightmost of the menu. 
+5. Go to the "practice" folder and open "practice1.ipynb". 
  
 6. To deactivate an active environment, use
     
