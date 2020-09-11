@@ -1,4 +1,4 @@
-## Instruction to set up the course Conda virtual environment 
+# Instruction to set up the course Conda virtual environment 
 
 
 We will use Python throughout the course. For practice session and homework, we will manage all library packages under a Conda virtual environment named "gct634". As a first step, please install the Python 3 version of Anaconda (https://repo.anaconda.com/). It will provide a cross-platform installation package. 
