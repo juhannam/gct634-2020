@@ -6,20 +6,18 @@ We will use Python throughout the course. For practice session and homework, we 
 After you have installed conda, close any open terminals you might have. Then open a new terminal and run the following command:
 
 
-1. Create a gct634 environment with python 3.8
+1. Create a gct634 environment with python 3.8 and install essential packages
 
-   conda create -n gct634 python=3.8
+   conda create -n gct634 python=3.8 jupyter jupyterlab matplotlib <br>
+   python -m ipykernel install —user —name gct634 
 
 2. Activate the new environment:
 
     conda activate gct634
 
-3. install the following packages by typing one by one
+3. install librosa
 
-    conda create -y -n gct634 python=3.8 jupyter jupyterlab matplotlib <br>
-    conda activate gct634 <br>
-    conda install -y -c conda-forge librosa <br>
-    python -m ipykernel install —user —name gct634 
+    conda install -y -c conda-forge librosa
 
 4. Run Jupyter Notebook 
 
