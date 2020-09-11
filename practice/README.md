@@ -14,17 +14,21 @@ After you have installed conda, close any open terminals you might have. Then op
 
     conda activate gct634
 
-3. install librosa
+3. Install IPython kernel so we can use this environment in jupyter notebook: 
+
+    python -m ipykernel install --user --name gct634
+
+4. install librosa
 
     conda install -y -c conda-forge librosa
 
-4. Run Jupyter Notebook 
+5. Run Jupyter Notebook 
 
    jupyter notebook 	
 
-5. Go to the "practice" folder and open "practice1.ipynb". 
+6. Go to the "practice" folder and open "practice1.ipynb". 
  
-6. To deactivate an active environment, use
+7. To deactivate an active environment, use
     
    conda deactivate
 
