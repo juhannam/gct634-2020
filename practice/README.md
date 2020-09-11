@@ -16,9 +16,9 @@ After you have installed conda, close any open terminals you might have. Then op
 
 3. install the following packages by typing one by one
 
-    conda create -y -n gct634 python=3.8 jupyter jupyterlab matplotlib 
-    conda activate gct634 
-    conda install -y -c conda-forge librosa 
+    conda create -y -n gct634 python=3.8 jupyter jupyterlab matplotlib <br>
+    conda activate gct634 <br>
+    conda install -y -c conda-forge librosa <br>
     python -m ipykernel install —user —name gct634 
 
 4. Run Jupyter Notebook 
