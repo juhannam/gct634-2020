@@ -1,5 +1,5 @@
-# Homework #1: Musical Instrument Classification
-Musical instrument classification is a fundamental task in understanding music by computers. Your first mission is developing your own algorithm based on the traditional machine learning approach. Specifically, the goals of this homework are as follows: 
+# Homework #1: Musical Instrument Recognition
+Musical instrument recognition is a fundamental task in understanding music by computers. Your first mission is developing your own algorithm based on the traditional machine learning approach. Specifically, the goals of this homework are as follows: 
 - Experiencing the whole pipeline of a machine learning task: data preparation, feature extraction, training learning models and evaluation 
 - Using the Librosa and Scikit-learn libraries in practice 
 - Analyzing different characteristics of musical instrument tones and extracting them in a numerical form
