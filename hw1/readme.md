@@ -57,7 +57,7 @@ Now it is your turn. You should improve the baseline code by developing your own
 
 * Try different MFCC parameter settings: mel-bin size and DCT size
 * Add delta and double-delta of MFCCs
-* Add other audio features: Spectral statitsics, temporal envelope (ADSR: attack, decay, sustain, release), the ratio of harmonic and noise elements, and so on. Think about what determines the unique timbre of musical instruments.
+* Add other audio features: spectral statitsics, temporal envelope (e.g. ADSR), and so on. Think about what determines the unique timbre of musical instruments.
 * Codebook-based feature summarization
 * Try different classifiers: k-NN, SVM with nonlinear kernels, MLP, GMM, ...
 
