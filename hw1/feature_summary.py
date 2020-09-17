@@ -38,7 +38,7 @@ def mean_mfcc(dataset='train'):
         mfcc_mat[:,i]= np.mean(mfcc, axis=1)
         i = i + 1
 
-    f.close();
+    f.close()
 
     return mfcc_mat
         
