@@ -60,10 +60,11 @@ Now it is your turn. You should improve the baseline code by developing your own
 * Add other audio features: spectral statitsics, temporal envelope (e.g. ADSR), and so on. Think about what determines the unique timbre of musical instruments.
 * Codebook-based feature summarization
 * Try different classifiers: k-NN, SVM with nonlinear kernels, MLP, GMM, ...
+* Most of all, observing sounds as a waveform and spectrogram and at the same time listening to them will give you a lot of insight! Audacity is a convenient tool for this purposes. 
 
 ## Deliverables
 You should submit your Python code (.py files) and homework report (.pdf file) to KLMS. The report should include:
 * Algorithm Description
 * Experiments and Results
 * Discussion
-
+* [Important] It is allowed to use both training set and valiation set as training data after finding appropriate hyperparameters. You can also do K-fold cross-validation with the mix of training and validation sets. However, your test accuracy must be computed on the best model on the training and validation sets. In other words, you must not use the test set for hyperparameter search.
