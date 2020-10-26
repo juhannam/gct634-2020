@@ -8,7 +8,7 @@ Music genre classification is an important task that can be used in many musical
 ## Dataset
 We use the [GTZAN](http://marsyas.info/downloads/datasets.html) dataset which has been the most widely used in the music genre classification task. 
 The dataset contains 30-second audio files including 10 different genres including reggae, classical, country, jazz, metal, pop, disco, hiphop, rock and blues. 
-For this homework, we are going to use a subset of GTZAN with only 8 genres. You can download the subset from [this link](https://drive.google.com/file/d/12muTzkTEfbSSNFpO08pW2DvaPNO8L4J3/view?usp=sharing).
+For this homework, we are going to use a subset of GTZAN with only 8 genres. You can download the subset from [this link](https://drive.google.com/file/d/1J1DM0QzuRgjzqVWosvPZ1k7MnBRG-IxS/view?usp=sharing).
 
 Once you downloaded the dataset, unzip and move the dataset to your home folder. After you have done this, you should have the following content in the dataset folder.  
 ```
@@ -69,7 +69,7 @@ Now it is your turn. You should improve the baseline code with your own algorith
 
 
 ## Deliverables
-You should submit your Python code (.py files) and homework report (.pdf file) to KLMS. The report should include:
+You should submit your Python code (`.ipynb` or `.py` files) and homework report (.pdf file) to KLMS. The report should include:
 * Algorithm Description
 * Experiments and Results
 * Discussion
