@@ -1,4 +1,4 @@
-# Homework #2: Music Genre Classification
+# Homework #2: Music Genre Classification [Colab Notebook](https://colab.research.google.com/drive/1-9SrI7M440hQ6F2Q7KLiBrFjzSTfyG57?usp=sharing)
 Music genre classification is an important task that can be used in many musical applications such as music search or recommender systems. Your mission is to build your own Convolutional Neural Network (CNN) model to classify audio files into different music genres. Specifically, the goals of this homework are as follows:
 
 * Experiencing the whole pipeline of deep learning based system: data preparation, feature extraction, model training and evaluation
@@ -22,7 +22,6 @@ wav:
 blues     classical country   disco     hiphop    jazz      metal     pop       reggae    rock
 $ cd ..      # go back to your home folder for next steps
 ```
-The dataset consist of 733 songs for training and 197 songs for evaluation.
 
 
 ## Training CNNs from Scratch
@@ -41,7 +40,7 @@ Here, we will use pre-trained models from [`musicnn`](https://github.com/jordipo
 Create 2-layer MLP model and train the model using the extracted features.
 
 
-## Improving Algorithms [Leader Board (TBA)]
+## Improving Algorithms [[Leader Board]](https://docs.google.com/spreadsheets/d/1bzkMFeXABTae7kDJG6QCU_qnP1ppJDoNQLgGz3ksJu0/edit?usp=sharing)
 ### Question 3: Improve performances of models
 Now it is your turn. You should improve the baseline code with your own algorithm. There are many ways to improve it. The followings are possible ideas: 
 
@@ -75,7 +74,8 @@ You should submit your Python code (.py files) and homework report (.pdf file) t
 * Experiments and Results
 * Discussion
 
-
+## Note
+The code is written using PyTorch but you can use TensorFlow if you want for question 3.
 
 ## Credit
 Thie homework was implemented by Jongpil Lee, Soonbeom Choi and Taejun Kim in the KAIST Music and Audio Computing Lab.
