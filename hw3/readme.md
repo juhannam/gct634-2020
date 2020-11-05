@@ -30,13 +30,13 @@ We provide dataloader to process the dataset (dataset.py). It will segement the 
 ## Question 1: implement LSTM based model, consists of 3-layers of bi-directional LSTM.
 
 ## Question 2: implement CNN-RNN(CRNN) model
-Work on progress
+Work in progress
 
 ## Question 3: implement Onsets-and-Frames model, which have interconnection between onsets and frames.
-Work on progress
+Work in progress
 
 ## Deliverables
-Work on progress
+Work in progress
 
 ## Note
 
