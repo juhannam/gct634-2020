@@ -14,7 +14,7 @@ from torch.utils.data import Dataset
 from tqdm import tqdm
 import pretty_midi
 
-from constants import MIN_MIDI, MAX_MIDI, SAMPLE_RATE
+from constants import MIN_MIDI, MAX_MIDI, SAMPLE_RATE, HOP_SIZE
 
 
 def allocate_batch(batch, device):
@@ -25,7 +25,7 @@ def allocate_batch(batch, device):
 
 
 class PianoSampleDataset(Dataset):
-    def __init__(self, path, groups=None, sample_length=16000*5, hop_size=512, seed=1257, random_sample=True):
+    def __init__(self, path, groups=None, sample_length=16000*5, hop_size=HOP_SIZE, seed=1257, random_sample=True):
         self.path = path
         self.groups = groups if groups is not None else self.available_groups()
         assert all(group in self.available_groups() for group in self.groups)

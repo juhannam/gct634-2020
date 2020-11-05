@@ -85,7 +85,7 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
                         metrics[key].extend(value)
             for key, value in metrics.items():
                 if key[-2:] == 'f1' or 'loss' in key:
-                    print(f'{key} : {np.mean(value)}')
+                    print(f'{key:27} : {np.mean(value):.4f}')
             model.train()
 
     th.save({'model_state_dict': model.state_dict,

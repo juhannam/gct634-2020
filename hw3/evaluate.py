@@ -3,7 +3,6 @@ from collections import defaultdict
 import numpy as np
 import torch as th
 import torch.nn as nn
-import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from mir_eval.util import midi_to_hz
 from mir_eval.transcription import precision_recall_f1_overlap as evaluate_notes
@@ -26,9 +25,20 @@ def evaluate(model, batch, device):
     metrics['metric/loss/frame_loss'].append(frame_loss.cpu().numpy())
     metrics['metric/loss/onset_loss'].append(onset_loss.cpu().numpy())
 
+
     for n in range(batch['audio'].shape[0]):
-        frame_pred = F.sigmoid(frame_logit[n])
-        onset_pred = F.sigmoid(onset_logit[n])
+        frame_pred = th.sigmoid(frame_logit[n])
+        onset_pred = th.sigmoid(onset_logit[n])
+
+        pr, re, f1 = framewise_eval(frame_pred, batch['frame'][n])
+        metrics['metric/frame/frame_precision'].append(pr)
+        metrics['metric/frame/frame_recall'].append(re)
+        metrics['metric/frame/frame_f1'].append(f1)
+
+        pr, re, f1 = framewise_eval(onset_pred, batch['onset'][n])
+        metrics['metric/frame/onset_precision'].append(pr)
+        metrics['metric/frame/onset_recall'].append(re)
+        metrics['metric/frame/onset_f1'].append(f1)
 
         p_est, i_est = extract_notes(onset_pred, frame_pred)
         p_ref, i_ref = extract_notes(batch['onset'][n], batch['frame'][n])
@@ -99,3 +109,21 @@ def extract_notes(onsets, frames, onset_threshold=0.5, frame_threshold=0.5):
             intervals.append([onset, offset])
 
     return np.array(pitches), np.array(intervals)
+    
+
+def framewise_eval(pred, label, threshold=0.5):
+    '''
+    evaluate frame-wise (point-wise) evaluation
+    pred: torch.tensor shape of (frame, pitch)
+    label: torch.tensor shape of (frame, pitch)
+    '''
+
+    tp = th.sum((pred >= threshold) * (label == 1)).cpu().numpy()
+    fn = th.sum((pred <  threshold) * (label == 1)).cpu().numpy()
+    fp = th.sum((pred >= threshold) * (label != 1)).cpu().numpy()
+    
+    pr = tp / float(tp + fp) if (tp + fp) > 0 else 0
+    re = tp / float(tp + fn) if (tp + fn) > 0 else 0
+    f1 = 2 * pr * re / float(pr + re) if (pr + re) > 0 else 0
+    
+    return pr, re, f1
