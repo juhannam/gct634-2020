@@ -1,0 +1,7 @@
+torch>=1.6.0
+torchaudio>=0.6.0
+numpy>=1.16.2
+tqdm
+soundfile>=0.10.3
+mir_eval==0.6
+pretty_midi>=0.2.9
