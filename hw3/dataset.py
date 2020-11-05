@@ -1,6 +1,3 @@
-# Origial codes are written by Jongwook Kim https://github.com/jongwook/onsets-and-frames
-# Modified by TaeGyun Kwon 
-
 import os
 import math
 import json
