@@ -17,6 +17,13 @@ import pretty_midi
 from constants import MIN_MIDI, MAX_MIDI, SAMPLE_RATE
 
 
+def allocate_batch(batch, device):
+    for key in batch.keys():
+        if key != 'path':
+            batch[key] = batch[key].to(device)
+    return batch
+
+
 class PianoSampleDataset(Dataset):
     def __init__(self, path, groups=None, sample_length=16000*5, hop_size=512, seed=1257, random_sample=True):
         self.path = path
@@ -100,11 +107,11 @@ class PianoSampleDataset(Dataset):
         audio_length = len(audio)
 
         n_keys = MAX_MIDI - MIN_MIDI + 1
-        n_steps = (audio_length - 1) // self.hop_size + 1
+        mel_length = audio_length // self.hop_size + 1
 
         midi = pretty_midi.PrettyMIDI(midi_path)
         midi_length_sec = midi.get_end_time()
-        frame_length = np.min((int(midi_length_sec * fs) , audio_length // self.hop_size))
+        frame_length = np.min((int(midi_length_sec * fs) , mel_length))
 
         audio = audio[:frame_length*self.hop_size]
         frame = midi.get_piano_roll(fs=fs)

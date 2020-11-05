@@ -2,49 +2,56 @@ from collections import defaultdict
 
 import numpy as np
 import torch as th
+import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from mir_eval.util import midi_to_hz
 from mir_eval.transcription import precision_recall_f1_overlap as evaluate_notes
 
-from dataset import MAESTRO_small
+from dataset import MAESTRO_small, allocate_batch
 from constants import HOP_SIZE, SAMPLE_RATE, MIN_MIDI
-
 
 from mir_eval.util import midi_to_hz
 
-def evaluate(model, device):
-    dataset = MAESTRO_small(groups=['test'], sequence_length=16000*30, hop_size=HOP_SIZE, random_sample=False)
+
+def evaluate(model, batch, device):
     metrics = defaultdict(list)
-    with th.no_grad():
-        loader = DataLoader(dataset, batch_size=1, shuffle=False)
-        for batch in loader:
-            frame_logit, onset_logit = model(batch['audio'].to(device))
-            frame_pred = F.sigmoid(frame_logit[0])
-            onset_pred = F.sigmoid(onset_logit[0])
+    batch = allocate_batch(batch, device)
 
-            p_est, i_est = extract_notes(onset_pred, frame_pred)
-            p_ref, i_ref = extract_notes(batch['onset'][0], batch['frame'][0])
+    frame_logit, onset_logit = model(batch['audio'])
 
-            scaling = HOP_SIZE / SAMPLE_RATE
+    criterion = nn.BCEWithLogitsLoss()
+    frame_loss = criterion(frame_logit, batch['frame'])
+    onset_loss = criterion(frame_logit, batch['onset'])
+    metrics['metric/loss/frame_loss'].append(frame_loss.cpu().numpy())
+    metrics['metric/loss/onset_loss'].append(onset_loss.cpu().numpy())
 
-            i_ref = (i_ref * scaling).reshape(-1, 2)
-            p_ref = np.array([midi_to_hz(MIN_MIDI + pitch) for pitch in p_ref])
-            i_est = (i_est * scaling).reshape(-1, 2)
-            p_est = np.array([midi_to_hz(MIN_MIDI + pitch) for pitch in p_est])
+    for n in range(batch['audio'].shape[0]):
+        frame_pred = F.sigmoid(frame_logit[n])
+        onset_pred = F.sigmoid(onset_logit[n])
 
-            p, r, f, o = evaluate_notes(
-                i_ref, p_ref, i_est, p_est, offset_ratio=None)
-            metrics['metric/note/precision'].append(p)
-            metrics['metric/note/recall'].append(r)
-            metrics['metric/note/f1'].append(f)
-            metrics['metric/note/overlap'].append(o)
+        p_est, i_est = extract_notes(onset_pred, frame_pred)
+        p_ref, i_ref = extract_notes(batch['onset'][n], batch['frame'][n])
 
-            p, r, f, o = evaluate_notes(i_ref, p_ref, i_est, p_est)
-            metrics['metric/note-with-offsets/precision'].append(p)
-            metrics['metric/note-with-offsets/recall'].append(r)
-            metrics['metric/note-with-offsets/f1'].append(f)
-            metrics['metric/note-with-offsets/overlap'].append(o)
+        scaling = HOP_SIZE / SAMPLE_RATE
+
+        i_ref = (i_ref * scaling).reshape(-1, 2)
+        p_ref = np.array([midi_to_hz(MIN_MIDI + pitch) for pitch in p_ref])
+        i_est = (i_est * scaling).reshape(-1, 2)
+        p_est = np.array([midi_to_hz(MIN_MIDI + pitch) for pitch in p_est])
+
+        p, r, f, o = evaluate_notes(
+            i_ref, p_ref, i_est, p_est, offset_ratio=None)
+        metrics['metric/note/precision'].append(p)
+        metrics['metric/note/recall'].append(r)
+        metrics['metric/note/f1'].append(f)
+        metrics['metric/note/overlap'].append(o)
+
+        p, r, f, o = evaluate_notes(i_ref, p_ref, i_est, p_est)
+        metrics['metric/note-with-offsets/precision'].append(p)
+        metrics['metric/note-with-offsets/recall'].append(r)
+        metrics['metric/note-with-offsets/f1'].append(f)
+        metrics['metric/note-with-offsets/overlap'].append(o)
 
     return metrics
 

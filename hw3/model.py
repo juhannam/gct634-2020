@@ -5,6 +5,23 @@ import torchaudio.transforms as transforms
 
 from constants import SAMPLE_RATE, N_MELS, N_FFT, F_MAX, F_MIN, HOP_SIZE
 
+
+class LogMelSpectrogram(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.melspectrogram = transforms.MelSpectrogram(sample_rate=SAMPLE_RATE, n_fft=N_FFT,
+            hop_length=HOP_SIZE, f_min=F_MIN, f_max=F_MAX, n_mels=N_MELS, normalized=False)
+    
+    def forward(self, audio):
+        batch_size = audio.shape[0]
+        padded_audio = nn.functional.pad(audio, (N_FFT // 2, 0), 'constant')
+        mel = self.melspectrogram(audio)[:, :, 1:]
+        mel = mel.transpose(-1, -2)
+        mel = th.log(th.clamp(mel, min=1e-9))
+        return mel
+
+
+
 class ConvStack(nn.Module):
     def __init__(self, n_mels, cnn_unit, fc_unit):
         super().__init__()
@@ -46,8 +63,7 @@ class Transciber(nn.Module):
     def __init__(self, cnn_unit, fc_unit):
         super().__init__()
 
-        self.melspectrogram = transforms.MelSpectrogram(sample_rate=SAMPLE_RATE, n_fft=N_FFT,
-            hop_length=HOP_SIZE, f_min=F_MIN, f_max=F_MAX, n_mels=N_MELS, normalized=False)
+        self.melspectrogram = LogMelSpectrogram()
 
         self.frame_conv_stack = ConvStack(N_MELS, cnn_unit, fc_unit)
         self.frame_fc = nn.Linear(fc_unit, 88)
@@ -56,10 +72,7 @@ class Transciber(nn.Module):
         self.onset_fc = nn.Linear(fc_unit, 88)
 
     def forward(self, audio):
-        batch_size = audio.shape[0]
         mel = self.melspectrogram(audio)
-        mel = mel[:, :, :-1].transpose(-1, -2)
-        mel = th.log(th.clamp(mel, min=1e-9))
 
         x = self.frame_conv_stack(mel)  # (B x T x C)
         frame_out = self.frame_fc(x)
