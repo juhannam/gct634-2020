@@ -2,7 +2,8 @@
 
 Automatic music transcription (AMT) refers to an automated process that converts musical signals into a piano roll. Polyphonic piano transcription is a specific AMT task for piano music.  
 Because of sequential aspect of piano transcription, recurrent neural network(RNN) module is commonly used for the task.
-Since 
+**Since it tooks quite long time to converge, we will not evaluate the performance or the model.**
+For Q1~Q3, you can report the results at 5k training steps.
 In this homework, your task is re-implement two RNN-based transcription models. The goals of the homeworks are as follows:
 
 * Experiencing the deep learning process with sequential data.
@@ -70,7 +71,7 @@ Go to *model.py*, and implement model only consists with lstm layers. Use same s
 | Layer     | Spec                                                    | Output size   |
 |-----------|---------------------------------------------------------|---------------|
 | LogMel    | model.LogMelSpectrogram                                 | Time x 229    |
-| LSTM      | 2 layer Bi-directional LSTM. 88 unit for each direction.| Time x 88*2   |
+| LSTM      | 2 layer Bi-directional LSTM. 88 unit for each direction.| Time x 88\*2   |
 | Output fc | 88 unit, linear                                         | Time x 88     |
 
 
@@ -79,7 +80,7 @@ Go to *model.py*, and implement model only consists with lstm layers. Use same s
 |-----------|---------------------------------------------------------|---------------|
 | LogMel    | model.LogMelSpectrogram                                 | Time x 229    |
 | ConvStack | model.ConvStack                                         | Time x fc_unit|
-| LSTM      | 2 layer Bi-directional LSTM. 88 unit for each direction.| Time x 88*2   |
+| LSTM      | 2 layer Bi-directional LSTM. 88 unit for each direction.| Time x 88\*2   |
 | Output fc | 88 unit, linear                                         | Time x 88     |
 
 ## Question 3: implement Onsets-and-Frames model, which have interconnection between onsets and frames.
@@ -91,12 +92,13 @@ In the work of [Hawrhorne et al.](https://arxiv.org/abs/1710.11153), they made i
 ## Question 4: Discuss and analyze the results of the models. What kinds of error did you observe? How could you improve the results? (You don't have to implement it) 
 
 ## Deliverables
-Work in progress
+You should submit your Python code (.ipynb or .py files) and homework report (.pdf file) to KLMS. The report should include:
+
+Experiments and Results
+Discussion
 
 ## Transcribe your own!
-Work in progress
-
-## Note
+We will provide the code that can transcribe your own audiofile, with your trained model.
 
 
 ## Credit
