@@ -14,6 +14,10 @@ class LogMelSpectrogram(nn.Module):
     
     def forward(self, audio):
         batch_size = audio.shape[0]
+        
+        # alignment correction to match with pianoroll
+        # pretty_midi.get_piano_roll use ceil, but torchaudio.transforms.melspectrogram uses
+        # round when they convert the input into frames.
         padded_audio = nn.functional.pad(audio, (N_FFT // 2, 0), 'constant')
         mel = self.melspectrogram(audio)[:, :, 1:]
         mel = mel.transpose(-1, -2)
