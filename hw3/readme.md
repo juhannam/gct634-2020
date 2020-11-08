@@ -2,12 +2,20 @@
 
 Automatic music transcription (AMT) refers to an automated process that converts musical signals into a piano roll. Polyphonic piano transcription is a specific AMT task for piano music.  
 Because of sequential aspect of piano transcription, recurrent neural network(RNN) module is commonly used for the task.
-**Since it tooks quite long time to converge, we will not evaluate the performance or the model.**
-For Q1~Q3, you can report the results at 5k training steps.
+**Since it takes quite long time to converge, we will not evaluate by the performance of the model.**
+For Q1~Q3, you can report the results at 5k training steps. We provided reference logfiles in log_example.py. If your model shows similar scores, you are safe to go.
 In this homework, your task is re-implement two RNN-based transcription models. The goals of the homeworks are as follows:
 
 * Experiencing the deep learning process with sequential data.
 * Getting familiar with RNN architectures.
+
+## Environment
+This homework requires several packages.
+You may require to install *torchaudio*, *tqdm*, *soundfile*, *mir_eval*, *pretty_midi* additionally.
+
+```
+pip install torchaudio tqdm soundfile mir_eval pretty_midi
+```
 
 ## Dataset [[download link]](https://drive.google.com/file/d/185czlGZGXdDu8lFCnpe5nLpyZtKuao_p/view?usp=sharing)
 We will use subset of [MAESTRO](https://magenta.tensorflow.org/datasets/maestro) dataset for this homework. The dataset contains performances of classical pieces, played by junior pianists. The audiofile and corresponding midi files are given. The midi files are recorded through special piano that can capture note timings and speeds.
@@ -18,7 +26,7 @@ Once you downloaded the dataset, unzip and move the dataset to the homework fold
 
 ```
 $ pwd
-{YOUR_DIRECTORY}/gct-2020/hw3
+{YOUR_DIRECTORY}/gct634-2020/hw3
 $ unzip maestro_small.zip
 ...
 $ ls data
@@ -84,10 +92,9 @@ Go to *model.py*, and implement model only consists with lstm layers. Use same s
 | Output fc | 88 unit, linear                                         | Time x 88     |
 
 ## Question 3: implement Onsets-and-Frames model, which have interconnection between onsets and frames.
-In the work of [Hawrhorne et al.](https://arxiv.org/abs/1710.11153), they made interconnection between onsets and frames; onset prediction is feeded into LSTM layer of frame, as well as CNN output. For inter connection (onset_predictions->frame_BiLSTM), stop the gradient. You can use same specification for CNN and LSTM layer in HW2.
+In the work of [Hawrhorne et al.](https://arxiv.org/abs/1710.11153), they made interconnection between onsets and frames; onset prediction is feeded into LSTM layer of frame, as well as CNN output. For inter connection (onset_predictions->frame_BiLSTM), stop the gradient. Use same specification for CNN and LSTM layers in HW2. (Ignore first sigmoid in the frame-loss stack. You can just use a FC layer without Sigmoid)
 
 <img src="onf.PNG" width="150">
-
 
 ## Question 4: Discuss and analyze the results of the models. What kinds of error did you observe? How could you improve the results? (You don't have to implement it) 
 
@@ -98,8 +105,22 @@ You should submit your Python code (.ipynb or .py files) and homework report (.p
 * Discussion
 
 ## Transcribe your own!
-We will provide the code that can transcribe your own audiofile, with your trained model.
+You can transcribe your model with transcribe.py
+To transcribe, you need pyFluidsynth and fluidsynth for synthesis
 
+```
+# install fluidsynth
+$ apt-get install -y fluidsynth
+...
+$ pip install pyFluidSynth
+...
+
+# transcribe
+$ python transcribe.py runs/exp_201108-131123/model-10000.pt data/2006/MIDI-Unprocessed_03_R1_2006_01-05_ORIG_MID--AUDIO_03_R1_2006_04_Track04_wav.flac
+save_path: runs/exp_201108-131123/MIDI-Unprocessed_03_R1_2006_01-05_ORIG_MID--AUDIO_03_R1_2006_04_Track04_wav_transcribed
+...
+```
+It will make three files (save_path: runs/exp_201108-131123/MIDI-Unprocessed_03_R1_2006_01-05_ORIG_MID--AUDIO_03_R1_2006_04_Track04_wav_transcribed.{npz, midi, wav}.
 
 ## Credit
 Many lines of codes are borrowed from [Onsets-and-Frames implementation](https://github.com/jongwook/onsets-and-frames) of Jongwook Kim. Implemented by [Taegyun Kwon](https://taegyunkwon.github.io/) @ [MAClab](https://mac.kaist.ac.kr/)
