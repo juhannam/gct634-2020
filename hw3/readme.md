@@ -101,13 +101,8 @@ In the work of [Hawrhorne et al.](https://arxiv.org/abs/1710.11153), they made i
 ## Deliverables
 You should submit your Python code (.ipynb or .py files) and homework report (.pdf file) to KLMS. The report should include:
 
-<<<<<<< HEAD
 * Experiments and Results
 * Discussion
-=======
-Experiments and Results
-Discussion
->>>>>>> 53bc30187bdabcd91396850c9fd4519b6480ad7e
 
 ## Transcribe your own!
 You can transcribe your model with transcribe.py
