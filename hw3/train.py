@@ -23,7 +23,7 @@ def cycle(iterable):
             yield item
 
 
-def train(logdir, batch_size, iterations, validation_interval, sequence_length, learning_rate, weight_decay, cnn_unit, fc_unit, debug=False):
+def train(logdir, batch_size, iterations, validation_interval, sequence_length, learning_rate, weight_decay, cnn_unit, fc_unit, debug=False, save_midi=False):
     if logdir is None:
         logdir = Path('runs') / ('exp_' + datetime.now().strftime('%y%m%d-%H%M%S'))
     Path(logdir).mkdir(parents=True, exist_ok=True)
@@ -83,6 +83,7 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
                     
                     for key, value in batch_results.items():
                         metrics[key].extend(value)
+            print('')
             for key, value in metrics.items():
                 if key[-2:] == 'f1' or 'loss' in key:
                     print(f'{key:27} : {np.mean(value):.4f}')
@@ -102,9 +103,10 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
         loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
         metrics = defaultdict(list)
         for batch in loader:
-            batch_results = evaluate(model, batch, device)
+            batch_results = evaluate(model, batch, device, save=save_midi, save_path=logdir)
             for key, value in batch_results.items():
                 metrics[key].extend(value)
+    print('')
     for key, value in metrics.items():
         if key[-2:] == 'f1' or 'loss' in key:
             print(f'{key} : {np.mean(value)}')
@@ -128,6 +130,7 @@ if __name__ == '__main__':
     parser.add_argument('-wd', '--weight_decay', default=0)
     parser.add_argument('-cnn', '--cnn_unit', default=48, type=int)
     parser.add_argument('-fc', '--fc_unit', default=256, type=int)
+    parser.add_argument('--save_midi', action='store_true')
     parser.add_argument('--debug', action='store_true')
     args = parser.parse_args()
 
