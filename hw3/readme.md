@@ -33,10 +33,10 @@ $ ls data
 2004  2006  2008  2009  2011  2013  2014  2015  2017  2018  data.json
 ```
 
-We provide dataloader to process the dataset (*dataset.py*). It will segment the audio and midis into specified length (when *sequence_length* is given), or precess whole audio (when *sequence_length = None*), and convert the midi into pianoroll format (frame roll and onset roll). Details are given in the notebook (notebooks/dataset.ipynb).
+We provide dataloader to process the dataset [*(dataset.py)*](dataset.py). It will segment the audio and midis into specified length (when *sequence_length* is given), or precess whole audio (when *sequence_length = None*), and convert the midi into pianoroll format (frame roll and onset roll). Details are given in the [notebooks/dataset.ipynb](notebooks/dataset.ipynb).
 
 ## Training simple CNN based model
-Complete baseline codes are given (CNN architecture is based on work by [Kelz et al.](https://arxiv.org/pdf/1612.05153.pdf)). In the Baseline model, each onset and frame is seperately processed by a CNN model (*model.Transcriber*). You can run the whole process by running *train.py* (you might see some warning, but it's fine). It requires ~4.8GB GRAM and ~1.5GB RAM. If it exceed the limit of your envionment, try smaller *batch_size* or *sequence_length*. Checkout the options in *train.py*.
+Complete baseline codes are given (CNN architecture is based on work by [Kelz et al.](https://arxiv.org/pdf/1612.05153.pdf)). In the Baseline model, each onset and frame is seperately processed by a CNN model (*model.Transcriber*). You can run the whole process by running [*train.py*](train.py) (you might see some warning, but it's fine). It requires ~4.8GB GRAM and ~1.5GB RAM. If it exceed the limit of your envionment, try smaller *batch_size* or *sequence_length*. Checkout the options in [*train.py*](train.py).
 ```
 $ python train.py
 Loading 1 group of MAESTRO_small at data
@@ -75,7 +75,7 @@ When we calculate note-wise metric *metirc/note*, we first decode the prediction
 If you are not familiar with precision / recall / F-score, checkout the [wiki](https://en.wikipedia.org/wiki/F-score). But you can focus on F1 score since it's quite a faithful metric.
 
 ## Question 1: implement LSTM based model.
-Go to *model.py*, and implement model only consists with lstm layers. Use same specification for  both networks same as baseline. 
+Go to [*model.py*](model.py), and implement model only consists with lstm layers. Use same specification for  both networks same as baseline. 
 | Layer     | Spec                                                    | Output size   |
 |-----------|---------------------------------------------------------|---------------|
 | LogMel    | model.LogMelSpectrogram                                 | Time x 229    |
@@ -105,7 +105,7 @@ You should submit your Python code (.ipynb or .py files) and homework report (.p
 * Discussion
 
 ## Transcribe your own!
-You can transcribe your model with transcribe.py
+You can transcribe your model with [*transcribe.py*](transcribe.py)
 To transcribe, you need pyFluidsynth and fluidsynth for synthesis
 
 ```
