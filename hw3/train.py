@@ -88,7 +88,7 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
                     print(f'{key:27} : {np.mean(value):.4f}')
             model.train()
 
-    th.save({'model_state_dict': model.state_dict,
+    th.save({'model_state_dict': model.state_dict(),
             'optimizer_state_dict': optimizer.state_dict(),
             'step' : step,
             'cnn_unit' : cnn_unit,
