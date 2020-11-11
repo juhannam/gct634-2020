@@ -21,7 +21,7 @@ $ apt-get install fluidsynth
 $ pip install torchaudio tqdm soundfile mir_eval pretty_midi pyFluidSynth 
 ```
 
-## Dataset [[download link]](https://drive.google.com/file/d/185czlGZGXdDu8lFCnpe5nLpyZtKuao_p/view?usp=sharing)
+## Dataset [[download link]](https://drive.google.com/file/d/1wvN_ZWDiss1YCpC7GAPBMMlyrFYOB6NZ/view?usp=sharing)
 We will use subset of [MAESTRO](https://magenta.tensorflow.org/datasets/maestro) dataset for this homework. The dataset contains performances of classical pieces, played by junior pianists. The audiofile and corresponding midi files are given. The midi files are recorded through special piano that can capture note timings and speeds.
 We will convert the midi files into pianoroll format, and we will train our network to estimate that pianoroll from the audio, in supervised way.
 We arbitary selected 100 / 20 / 50 (train/valid/test) performances from original dataset for this homework.
