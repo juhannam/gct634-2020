@@ -1,4 +1,4 @@
-# HW3 : Automatic Polyphonic Piano Transcription
+# HW3 : Automatic Polyphonic Piano Transcription [[Leader Board]](https://docs.google.com/spreadsheets/d/1WTFrSzQKjRqPfktVtrGKnFDbam4pAnayMdr8kECRYzM/edit?usp=sharing)
 
 Automatic music transcription (AMT) refers to an automated process that converts musical signals into a piano roll. Polyphonic piano transcription is a specific AMT task for piano music.  
 Because of sequential aspect of piano transcription, recurrent neural network(RNN) module is commonly used for the task.
@@ -9,15 +9,19 @@ In this homework, your task is re-implement two RNN-based transcription models. 
 * Experiencing the deep learning process with sequential data.
 * Getting familiar with RNN architectures.
 
+Due date: 29 November [[KLMS handout]](http://klms.kaist.ac.kr/mod/assign/view.php?id=464634)
+
 ## Environment
 This homework requires several packages.
-You may require to install *torchaudio*, *tqdm*, *soundfile*, *mir_eval*, *pretty_midi* additionally.
+You may require to install *torchaudio*, *tqdm*, *soundfile*, *mir_eval*, *pretty_midi* *pyFluidSynth* additionally.
 
 ```
-pip install torchaudio tqdm soundfile mir_eval pretty_midi
+$ apt-get install fluidsynth
+# torchaudio may re-install pytorch. Specify the version if you want.
+$ pip install torchaudio tqdm soundfile mir_eval pretty_midi pyFluidSynth 
 ```
 
-## Dataset [[download link]](https://drive.google.com/file/d/185czlGZGXdDu8lFCnpe5nLpyZtKuao_p/view?usp=sharing)
+## Dataset [[download link]](https://drive.google.com/file/d/1wvN_ZWDiss1YCpC7GAPBMMlyrFYOB6NZ/view?usp=sharing)
 We will use subset of [MAESTRO](https://magenta.tensorflow.org/datasets/maestro) dataset for this homework. The dataset contains performances of classical pieces, played by junior pianists. The audiofile and corresponding midi files are given. The midi files are recorded through special piano that can capture note timings and speeds.
 We will convert the midi files into pianoroll format, and we will train our network to estimate that pianoroll from the audio, in supervised way.
 We arbitary selected 100 / 20 / 50 (train/valid/test) performances from original dataset for this homework.
@@ -36,7 +40,7 @@ $ ls data
 We provide dataloader to process the dataset [*(dataset.py)*](dataset.py). It will segment the audio and midis into specified length (when *sequence_length* is given), or precess whole audio (when *sequence_length = None*), and convert the midi into pianoroll format (frame roll and onset roll). Details are given in the [notebooks/dataset.ipynb](notebooks/dataset.ipynb).
 
 ## Training simple CNN based model
-Complete baseline codes are given (CNN architecture is based on work by [Kelz et al.](https://arxiv.org/pdf/1612.05153.pdf)). In the Baseline model, each onset and frame is seperately processed by a CNN model (*model.Transcriber*). You can run the whole process by running [*train.py*](train.py) (you might see some warning, but it's fine). It requires ~4.8GB GRAM and ~1.5GB RAM. If it exceed the limit of your envionment, try smaller *batch_size* or *sequence_length*. Checkout the options in [*train.py*](train.py).
+Complete baseline codes are given (CNN architecture is based on work by [Kelz et al.](https://arxiv.org/pdf/1612.05153.pdf)). In the Baseline model, each onset and frame is seperately processed by a CNN model (*model.Transcriber*). You can run the whole process by running [*train.py*](train.py) (you might see some warning, but it's fine). It requires ~4.8GB GRAM and ~1.5GB RAM. If it exceed the limit of your envionment, try smaller *batch_size* or *sequence_length*. If you use --save_midi option, it will save resulting midi files at *logdir*. Checkout the options in [*train.py*](train.py).
 ```
 $ python train.py
 Loading 1 group of MAESTRO_small at data
@@ -97,6 +101,7 @@ In the work of [Hawrhorne et al.](https://arxiv.org/abs/1710.11153), they made i
 <img src="onf.PNG" width="150">
 
 ## Question 4: Discuss and analyze the results of the models. What kinds of error did you observe? How could you improve the results? (You don't have to implement it) 
+There is a leaderboard though!
 
 ## Deliverables
 You should submit your Python code (.ipynb or .py files) and homework report (.pdf file) to KLMS. The report should include:
@@ -104,17 +109,11 @@ You should submit your Python code (.ipynb or .py files) and homework report (.p
 * Experiments and Results
 * Discussion
 
-## Transcribe your own!
-You can transcribe your model with [*transcribe.py*](transcribe.py)
-To transcribe, you need pyFluidsynth and fluidsynth for synthesis
+## Transcribe your own! (just for fun!)
+You can transcribe your own audio file with [*transcribe.py*](transcribe.py)
+To transcribe, you need pyFluidsynth and fluidsynth for synthesis. If you want to change the model, you have to change the code to save & load your model.
 
 ```
-# install fluidsynth
-$ apt-get install -y fluidsynth
-...
-$ pip install pyFluidSynth
-...
-
 # transcribe
 $ python transcribe.py runs/exp_201108-131123/model-10000.pt data/2006/MIDI-Unprocessed_03_R1_2006_01-05_ORIG_MID--AUDIO_03_R1_2006_04_Track04_wav.flac
 save_path: runs/exp_201108-131123/MIDI-Unprocessed_03_R1_2006_01-05_ORIG_MID--AUDIO_03_R1_2006_04_Track04_wav_transcribed
