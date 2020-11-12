@@ -11,7 +11,7 @@ from torch.optim.lr_scheduler import StepLR
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from model import Transciber
+from model import Transcriber, Transcriber_CRNN, Transcriber_ONF, Transcriber_RNN
 from dataset import MAESTRO_small, allocate_batch
 from evaluate import evaluate
 from constants import HOP_SIZE
@@ -23,7 +23,7 @@ def cycle(iterable):
             yield item
 
 
-def train(logdir, batch_size, iterations, validation_interval, sequence_length, learning_rate, weight_decay, cnn_unit, fc_unit, debug=False, save_midi=False):
+def train(model_type, logdir, batch_size, iterations, validation_interval, sequence_length, learning_rate, weight_decay, cnn_unit, fc_unit, debug=False, save_midi=False):
     if logdir is None:
         logdir = Path('runs') / ('exp_' + datetime.now().strftime('%y%m%d-%H%M%S'))
     Path(logdir).mkdir(parents=True, exist_ok=True)
@@ -46,7 +46,14 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
 
     device = th.device('cuda') if th.cuda.is_available() else th.device('cpu')
 
-    model = Transciber(cnn_unit=cnn_unit, fc_unit=fc_unit)
+    if model_type == 'baseline':
+        model = Transcriber(cnn_unit=cnn_unit, fc_unit=fc_unit)
+    elif model_type == 'rnn':
+        model = Transcriber_RNN(cnn_unit=cnn_unit, fc_unit=fc_unit)
+    elif model_type == 'crnn':
+        model = Transcriber_CRNN(cnn_unit=cnn_unit, fc_unit=fc_unit)
+    elif model_type == 'ONF':
+        model = Transcriber_ONF(cnn_unit=cnn_unit, fc_unit=fc_unit)
     optimizer = th.optim.Adam(model.parameters(), learning_rate, weight_decay=weight_decay)
     scheduler = StepLR(optimizer, step_size=1000, gamma=0.98)
     criterion = nn.BCEWithLogitsLoss()
@@ -122,6 +129,7 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('--model_type', default='baseline', type=str)
     parser.add_argument('--logdir', default=None, type=str)
     parser.add_argument('-v', '--sequence_length', default=102400, type=int)
     parser.add_argument('-lr', '--learning_rate', default=6e-4, type=float)
