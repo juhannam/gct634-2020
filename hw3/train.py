@@ -96,6 +96,7 @@ def train(logdir, batch_size, iterations, validation_interval, sequence_length, 
             'fc_unit' : fc_unit
             },
             Path(logdir) / f'model-{step}.pt')
+    del dataset, valid_dataset
     
     test_dataset = MAESTRO_small(groups=['test'], hop_size=HOP_SIZE, random_sample=False)
     model.eval()
