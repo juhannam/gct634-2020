@@ -1,0 +1,108 @@
+ilcobo2@376e826c0326:~/gct634-2020/hw3$ CUDA_VISIBLE_DEVICES=1 python train.py --model_type=crnn
+Loading 1 group of MAESTRO_small at data
+Loading group train: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:28<00:00,  3.57it/s]
+Loading 1 group of MAESTRO_small at data
+Loading group validation: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:05<00:00,  3.87it/s]
+ 10%|█████████████████▏                                                                                                                                                          | 999/10000 [02:44<26:23,  5.68it/s, loss: 1.816e-01]/home/ilcobo2/gct634-2020/hw3/evaluate.py:106: UserWarning: This overload of nonzero is deprecated:
+        nonzero()
+Consider using one of the following signatures instead:   
+        nonzero(*, bool as_tuple) (Triggered internally at  /pytorch/torch/csrc/utils/python_arg_parser.cpp:766.)
+  for nonzero in onset_diff.nonzero():
+/home/ilcobo2/.local/lib/python3.6/site-packages/mir_eval/transcription.py:167: UserWarning: Estimated notes are empty.
+  warnings.warn("Estimated notes are empty.")
+  
+metric/loss/frame_loss      : 0.1500
+metric/loss/onset_loss      : 0.0562
+metric/frame/frame_f1       : 0.0000
+metric/frame/onset_f1       : 0.0000
+metric/note/f1              : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+ 20%|██████████████████████████████████▏                                                                                                                                        | 1999/10000 [05:25<22:21,  5.97it/s, loss: 1.831e-01]
+metric/loss/frame_loss      : 0.1402
+metric/loss/onset_loss      : 0.0843
+metric/frame/frame_f1       : 0.0900
+metric/frame/onset_f1       : 0.0000
+metric/note/f1              : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+ 30%|███████████████████████████████████████████████████▎                                                                                                                       | 2999/10000 [08:03<18:59,  6.15it/s, loss: 1.589e-01]
+metric/loss/frame_loss      : 0.1034
+metric/loss/onset_loss      : 0.0633
+metric/frame/frame_f1       : 0.3191
+metric/frame/onset_f1       : 0.0000
+metric/note/f1              : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+ 40%|████████████████████████████████████████████████████████████████████▍                                                                                                      | 3999/10000 [10:39<15:34,  6.42it/s, loss: 1.516e-01]
+metric/loss/frame_loss      : 0.0917
+metric/loss/onset_loss      : 0.0695
+metric/frame/frame_f1       : 0.4490
+metric/frame/onset_f1       : 0.2739
+metric/note/f1              : 0.3034
+metric/note-with-offsets/f1 : 0.1050
+ 50%|█████████████████████████████████████████████████████████████████████████████████████▍                                                                                     | 4999/10000 [13:16<12:32,  6.65it/s, loss: 1.148e-01]
+metric/loss/frame_loss      : 0.0858
+metric/loss/onset_loss      : 0.0735
+metric/frame/frame_f1       : 0.5047
+metric/frame/onset_f1       : 0.5148
+metric/note/f1              : 0.5728
+metric/note-with-offsets/f1 : 0.2008
+ 60%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                                                                    | 5998/10000 [16:10<11:47,  5.66it/s, loss: 1.100e-01]^[
+metric/loss/frame_loss      : 0.0805
+metric/loss/onset_loss      : 0.0661
+metric/frame/frame_f1       : 0.5239
+metric/frame/onset_f1       : 0.6338
+metric/note/f1              : 0.7077
+metric/note-with-offsets/f1 : 0.2108
+ 70%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                   | 6999/10000 [18:55<08:35,  5.82it/s, loss: 8.329e-02]
+metric/loss/frame_loss      : 0.0747
+metric/loss/onset_loss      : 0.0660
+metric/frame/frame_f1       : 0.5592
+metric/frame/onset_f1       : 0.6739
+metric/note/f1              : 0.7791
+metric/note-with-offsets/f1 : 0.2658
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                  | 7999/10000 [21:41<05:42,  5.84it/s, loss: 8.760e-02]
+metric/loss/frame_loss      : 0.0731
+metric/loss/onset_loss      : 0.0796
+metric/frame/frame_f1       : 0.5932
+metric/frame/onset_f1       : 0.6930
+metric/note/f1              : 0.8136
+metric/note-with-offsets/f1 : 0.3295
+ 90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                 | 8999/10000 [24:28<03:05,  5.41it/s, loss: 8.809e-02]
+metric/loss/frame_loss      : 0.0687
+metric/loss/onset_loss      : 0.0708
+metric/frame/frame_f1       : 0.6162
+metric/frame/onset_f1       : 0.7157
+metric/note/f1              : 0.8272
+metric/note-with-offsets/f1 : 0.3101
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉| 9999/10000 [27:12<00:00,  5.99it/s, loss: 8.352e-02]
+metric/loss/frame_loss      : 0.0659
+metric/loss/onset_loss      : 0.0775
+metric/frame/frame_f1       : 0.6294
+metric/frame/onset_f1       : 0.7320
+metric/note/f1              : 0.8500
+metric/note-with-offsets/f1 : 0.3331
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [27:12<00:00,  6.12it/s, loss: 8.352e-02]
+Loading 1 group of MAESTRO_small at data
+Loading group test: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:09<00:00,  5.37it/s]
+
+metric/loss/frame_loss : 0.10777769237756729
+metric/loss/onset_loss : 0.10595838725566864
+metric/frame/frame_f1 : 0.5934761910901937
+metric/frame/onset_f1 : 0.7059858513557283
+metric/note/f1 : 0.8078608239672268
+metric/note-with-offsets/f1 : 0.3736758045220614
+                            loss frame_loss                : 0.108 +- 0.046
+                            loss onset_loss                : 0.106 +- 0.063
+                           frame frame_precision           : 0.705 +- 0.046
+                           frame frame_recall              : 0.518 +- 0.091
+                           frame frame_f1                  : 0.593 +- 0.067
+                           frame onset_precision           : 0.799 +- 0.038
+                           frame onset_recall              : 0.640 +- 0.121
+                           frame onset_f1                  : 0.706 +- 0.087
+                            note precision                 : 0.967 +- 0.014
+                            note recall                    : 0.702 +- 0.124
+                            note f1                        : 0.808 +- 0.088
+                            note overlap                   : 0.507 +- 0.059
+               note-with-offsets precision                 : 0.446 +- 0.107
+               note-with-offsets recall                    : 0.325 +- 0.104
+               note-with-offsets f1                        : 0.374 +- 0.104
+               note-with-offsets overlap                   : 0.850 +- 0.076

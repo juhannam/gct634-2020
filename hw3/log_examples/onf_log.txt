@@ -1,0 +1,112 @@
+ilcobo2@376e826c0326:~/gct634-2020/hw3$ CUDA_VISIBLE_DEVICES=0 python train.py --model_type=onf --save_midi
+Loading 1 group of MAESTRO_small at data
+Loading group train: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:24<00:00,  4.02it/s]
+Loading 1 group of MAESTRO_small at data
+Loading group validation: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:04<00:00,  4.12it/s]
+ 10%|██████████████████▉                                                                                                                                                                           | 999/10000 [02:36<24:17,  6.18it/s, loss: 2.269e-01]
+/home/ilcobo2/gct634-2020/hw3/evaluate.py:106: UserWarning: This overload of nonzero is deprecated:
+        nonzero()
+Consider using one of the following signatures instead:
+        nonzero(*, bool as_tuple) (Triggered internally at  /pytorch/torch/csrc/utils/python_arg_parser.cpp:766.)
+  for nonzero in onset_diff.nonzero():  
+/home/ilcobo2/.local/lib/python3.6/site-packages/mir_eval/transcription.py:167: UserWarning: Estimated notes are empty.
+  warnings.warn("Estimated notes are empty.")
+
+metric/loss/frame_loss      : 0.1462
+metric/loss/onset_loss      : 0.0605
+metric/frame/frame_f1       : 0.0000
+metric/frame/onset_f1       : 0.0000
+metric/note/f1              : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+ 20%|█████████████████████████████████████▊                                                                                                                                                       | 1999/10000 [05:12<21:27,  6.22it/s, loss: 1.760e-01]
+metric/loss/frame_loss      : 0.1292
+metric/loss/onset_loss      : 0.0639
+metric/frame/frame_f1       : 0.0077
+metric/frame/onset_f1       : 0.0000
+metric/note/f1              : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+ 30%|████████████████████████████████████████████████████████▋                                                                                                                                    | 2999/10000 [07:52<19:25,  6.01it/s, loss: 1.419e-01]
+metric/loss/frame_loss      : 0.1086
+metric/loss/onset_loss      : 0.0525
+metric/frame/frame_f1       : 0.2038
+metric/frame/onset_f1       : 0.0000
+metric/note/f1              : 0.0000
+metric/note-with-offsets/f1 : 0.0000
+ 40%|███████████████████████████████████████████████████████████████████████████▌                                                                                                                 | 3999/10000 [10:29<16:17,  6.14it/s, loss: 1.420e-01]
+metric/loss/frame_loss      : 0.0984
+metric/loss/onset_loss      : 0.0785
+metric/frame/frame_f1       : 0.4408
+metric/frame/onset_f1       : 0.1640
+metric/note/f1              : 0.1750
+metric/note-with-offsets/f1 : 0.0733
+ 50%|██████████████████████████████████████████████████████████████████████████████████████████████▍                                                                                              | 4999/10000 [13:10<13:10,  6.32it/s, loss: 1.219e-01]
+metric/loss/frame_loss      : 0.0886
+metric/loss/onset_loss      : 0.0734
+metric/frame/frame_f1       : 0.4894
+metric/frame/onset_f1       : 0.4364
+metric/note/f1              : 0.4789
+metric/note-with-offsets/f1 : 0.2186
+ 60%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                                           | 5998/10000 [15:46<11:29,  5.81it/s, loss: 9.776e-02]
+metric/loss/frame_loss      : 0.0854
+metric/loss/onset_loss      : 0.0790
+metric/frame/frame_f1       : 0.5135
+metric/frame/onset_f1       : 0.5867
+metric/note/f1              : 0.6563
+metric/note-with-offsets/f1 : 0.2387
+ 70%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                        | 6999/10000 [18:24<08:26,  5.92it/s, loss: 1.583e-01]
+metric/loss/frame_loss      : 0.0784
+metric/loss/onset_loss      : 0.0801
+metric/frame/frame_f1       : 0.5666
+metric/frame/onset_f1       : 0.6676
+metric/note/f1              : 0.7392
+metric/note-with-offsets/f1 : 0.3063
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                     | 7999/10000 [21:02<05:37,  5.92it/s, loss: 8.825e-02]
+metric/loss/frame_loss      : 0.0734
+metric/loss/onset_loss      : 0.0832
+metric/frame/frame_f1       : 0.6057
+metric/frame/onset_f1       : 0.6901
+metric/note/f1              : 0.7802
+metric/note-with-offsets/f1 : 0.3406
+ 90%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                   | 8999/10000 [23:40<02:46,  6.01it/s, loss: 1.045e-01]
+metric/loss/frame_loss      : 0.0682
+metric/loss/onset_loss      : 0.0889
+metric/frame/frame_f1       : 0.6527
+metric/frame/onset_f1       : 0.6903
+metric/note/f1              : 0.7883
+metric/note-with-offsets/f1 : 0.3796
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉| 9999/10000 [26:15<00:00,  6.23it/s, loss: 8.061e-02]
+metric/loss/frame_loss      : 0.0653
+metric/loss/onset_loss      : 0.0863
+metric/frame/frame_f1       : 0.6619
+metric/frame/onset_f1       : 0.7123
+metric/note/f1              : 0.8094
+metric/note-with-offsets/f1 : 0.4092
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [26:15<00:00,  6.35it/s, loss: 8.061e-02]
+Loading 1 group of MAESTRO_small at data
+Loading group test: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:09<00:00,  5.37it/s]
+fluidsynth: warning: Failed to pin the sample data to RAM; swapping is possible.
+fluidsynth: warning: Failed to pin the sample data to RAM; swapping is possible.
+
+metric/loss/frame_loss : 0.11061570793390274
+metric/loss/onset_loss : 0.12042078375816345
+metric/frame/frame_f1 : 0.6076426260940244
+metric/frame/onset_f1 : 0.6813083836402588
+metric/note/f1 : 0.7699916320215822
+metric/note-with-offsets/f1 : 0.37875697038460415
+                            loss frame_loss                : 0.111 +- 0.046
+                            loss onset_loss                : 0.120 +- 0.062
+                           frame frame_precision           : 0.664 +- 0.060
+                           frame frame_recall              : 0.564 +- 0.074
+                           frame frame_f1                  : 0.608 +- 0.059
+                           frame onset_precision           : 0.830 +- 0.036
+                           frame onset_recall              : 0.587 +- 0.127
+                           frame onset_f1                  : 0.681 +- 0.097
+                            note precision                 : 0.973 +- 0.014
+                            note recall                    : 0.647 +- 0.130
+                            note f1                        : 0.770 +- 0.098
+                            note overlap                   : 0.549 +- 0.054
+               note-with-offsets precision                 : 0.478 +- 0.106
+               note-with-offsets recall                    : 0.318 +- 0.100
+               note-with-offsets f1                        : 0.379 +- 0.101
+               note-with-offsets overlap                   : 0.863 +- 0.068

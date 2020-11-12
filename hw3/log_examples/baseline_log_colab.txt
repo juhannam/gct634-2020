@@ -1,0 +1,77 @@
+! python train.py -i=5000
+/usr/local/lib/python3.6/dist-packages/torchaudio/backend/utils.py:54: UserWarning: "sox" backend is being deprecated. The default backend will be changed to "sox_io" backend in 0.8.0 and "sox" backend will be removed in 0.9.0. Please migrate to "sox_io" backend. Please refer to https://github.com/pytorch/audio/issues/903 for the detail.
+  '"sox" backend is being deprecated. '
+Loading 1 group of MAESTRO_small at data
+Loading group train: 100% 100/100 [00:41<00:00,  2.43it/s]
+Loading 1 group of MAESTRO_small at data
+Loading group validation: 100% 20/20 [00:07<00:00,  2.70it/s]
+  0% 0/5000 [00:00<?, ?it/s]/usr/local/lib/python3.6/dist-packages/torch/functional.py:516: UserWarning: stft will require the return_complex parameter be explicitly  specified in a future PyTorch release. Use return_complex=False  to preserve the current behavior or return_complex=True to return  a complex output. (Triggered internally at  /pytorch/aten/src/ATen/native/SpectralOps.cpp:653.)
+  normalized, onesided, return_complex)
+/usr/local/lib/python3.6/dist-packages/torch/functional.py:516: UserWarning: The function torch.rfft is deprecated and will be removed in a future PyTorch release. Use the new torch.fft module functions, instead, by importing torch.fft and calling torch.fft.fft or torch.fft.rfft. (Triggered internally at  /pytorch/aten/src/ATen/native/SpectralOps.cpp:590.)
+  normalized, onesided, return_complex)
+ 20% 999/5000 [04:21<19:06,  3.49it/s, loss: 1.226e-01]/content/gct634-2020/hw3/evaluate.py:106: UserWarning: This overload of nonzero is deprecated:
+	nonzero()
+Consider using one of the following signatures instead:
+	nonzero(*, bool as_tuple) (Triggered internally at  /pytorch/torch/csrc/utils/python_arg_parser.cpp:882.)
+  for nonzero in onset_diff.nonzero():
+
+metric/loss/frame_loss      : 0.0703
+metric/loss/onset_loss      : 0.0562
+metric/frame/frame_f1       : 0.5796
+metric/frame/onset_f1       : 0.6243
+metric/note/f1              : 0.7171
+metric/note-with-offsets/f1 : 0.2408
+ 40% 1999/5000 [08:45<14:01,  3.56it/s, loss: 1.301e-01]
+metric/loss/frame_loss      : 0.0666
+metric/loss/onset_loss      : 0.0947
+metric/frame/frame_f1       : 0.6839
+metric/frame/onset_f1       : 0.6806
+metric/note/f1              : 0.7851
+metric/note-with-offsets/f1 : 0.3450
+ 60% 2999/5000 [13:09<09:11,  3.63it/s, loss: 1.007e-01]
+metric/loss/frame_loss      : 0.0621
+metric/loss/onset_loss      : 0.0784
+metric/frame/frame_f1       : 0.6739
+metric/frame/onset_f1       : 0.6952
+metric/note/f1              : 0.7897
+metric/note-with-offsets/f1 : 0.3517
+ 80% 3999/5000 [17:33<04:29,  3.72it/s, loss: 1.054e-01]
+metric/loss/frame_loss      : 0.0618
+metric/loss/onset_loss      : 0.1031
+metric/frame/frame_f1       : 0.7239
+metric/frame/onset_f1       : 0.7084
+metric/note/f1              : 0.8163
+metric/note-with-offsets/f1 : 0.3967
+100% 4999/5000 [21:58<00:00,  3.87it/s, loss: 9.697e-02]
+metric/loss/frame_loss      : 0.0604
+metric/loss/onset_loss      : 0.0656
+metric/frame/frame_f1       : 0.6697
+metric/frame/onset_f1       : 0.7052
+metric/note/f1              : 0.7984
+metric/note-with-offsets/f1 : 0.3688
+100% 5000/5000 [21:59<00:00,  3.79it/s, loss: 9.697e-02]
+Loading 1 group of MAESTRO_small at data
+Loading group test: 100% 50/50 [00:16<00:00,  3.10it/s]
+
+metric/loss/frame_loss : 0.10702161490917206
+metric/loss/onset_loss : 0.0755515843629837
+metric/frame/frame_f1 : 0.5709719463146735
+metric/frame/onset_f1 : 0.6849484065719542
+metric/note/f1 : 0.7683703358910517
+metric/note-with-offsets/f1 : 0.34527443650234185
+                            loss frame_loss                : 0.107 +- 0.055
+                            loss onset_loss                : 0.076 +- 0.032
+                           frame frame_precision           : 0.860 +- 0.044
+                           frame frame_recall              : 0.433 +- 0.092
+                           frame frame_f1                  : 0.571 +- 0.082
+                           frame onset_precision           : 0.848 +- 0.031
+                           frame onset_recall              : 0.583 +- 0.123
+                           frame onset_f1                  : 0.685 +- 0.093
+                            note precision                 : 0.990 +- 0.006
+                            note recall                    : 0.637 +- 0.125
+                            note f1                        : 0.768 +- 0.094
+                            note overlap                   : 0.526 +- 0.061
+               note-with-offsets precision                 : 0.441 +- 0.130
+               note-with-offsets recall                    : 0.288 +- 0.114
+               note-with-offsets f1                        : 0.345 +- 0.121
+               note-with-offsets overlap                   : 0.847 +- 0.062
