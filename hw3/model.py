@@ -63,7 +63,7 @@ class ConvStack(nn.Module):
         return x
 
 
-class Transciber(nn.Module):
+class Transcriber(nn.Module):
     def __init__(self, cnn_unit, fc_unit):
         super().__init__()
 
@@ -83,4 +83,29 @@ class Transciber(nn.Module):
 
         x = self.onset_conv_stack(mel)  # (B x T x C)
         onset_out = self.onset_fc(x)
+        return frame_out, onset_out
+
+class Transcriber_RNN(nn.Module):
+    def __init__(self, cnn_unit, fc_unit):
+        super().__init__()
+        self.melspectrogram = LogMelSpectrogram()
+
+    def forward(self, audio):
+        return frame_out, onset_out
+
+
+class Transcriber_CRNN(nn.Module):
+    def __init__(self, cnn_unit, fc_unit):
+        super().__init__()
+        self.melspectrogram = LogMelSpectrogram()
+
+    def forward(self, audio):
+        return frame_out, onset_out
+        
+class Transcriber_ONF(nn.Module):
+    def __init__(self, cnn_unit, fc_unit):
+        super().__init__()
+        self.melspectrogram = LogMelSpectrogram()
+
+    def forward(self, audio):
         return frame_out, onset_out

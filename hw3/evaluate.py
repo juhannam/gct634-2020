@@ -67,11 +67,11 @@ def evaluate(model, batch, device, save=False, save_path=None):
 
         if save:
             if len(p_est) == 0:
-                print(f'no onset detected. skip: {batch["path"][n].stem}')
-            midi_filename = Path(save_path).parent / (Path(batch['path'][n]).stem + '.midi')
+                print(f'no onset detected. skip: {Path(batch["path"][n]).stem}')
+            midi_filename = Path(save_path) / (Path(batch['path'][n]).stem + '.midi')
             save_midi(midi_filename, p_est, i_est, [64] * len(p_est))
 
-            wav_filename = Path(save_path).parent / (Path(batch['path'][n]).stem + '.wav')
+            wav_filename = Path(save_path) / (Path(batch['path'][n]).stem + '.wav')
             midi_file = pretty_midi.PrettyMIDI(str(midi_filename))
             synth_audio = midi_file.fluidsynth(fs=16000)
             soundfile.write(wav_filename, synth_audio, 16000)
