@@ -19,7 +19,7 @@ You can select any topic within the scope of music and audio research. Possible 
 - Sound Synthesis
 - Novel Datasets
 
-The latest research can be found at conferences such as ISMIR or ICASSP. 
+The latest research can be found at conferences in the field of music and audio research such as ISMIR or ICASSP. 
 
 You can also check final projects from the previous years: 
 - [2019 Final projects](https://mac.kaist.ac.kr/~juhan/gct634/2019/final.html)
