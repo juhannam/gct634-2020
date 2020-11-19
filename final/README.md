@@ -42,7 +42,7 @@ Briefly write the introduction, related works and any progress in the first page
 ### 7. Final Report
 - Use the provided template (WORD or Latex format)
 - The length is expected to be 3-4 pages including references
-- **The last section must be dedicated to describe the contribution of each team members (who did what)**
+- **The last section must be dedicated to describe the contribution of each team member (who did what)**
 
 ### *** Important Dates ***
 - Nov 23 (Mon) - 27(Fri): Meeting with Professor
