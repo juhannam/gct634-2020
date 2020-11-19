@@ -5,7 +5,7 @@
 Find classmates to form a final project team. One team can include up to 3 members.
 
 ### 2. Topic Selection
-You can select any topic within the scope of music and audio research. Possible topics include
+You can select any topic within the scope of music and audio research. Possible topics include:
 - Music Classification and Tagging: Genre, Mood, Instrument, Artist, and Composer
 - Audio-based Music Similarity: Cover Song Detection, Music Retrieval
 - Music Recommendation
@@ -19,7 +19,9 @@ You can select any topic within the scope of music and audio research. Possible 
 - Sound Synthesis
 - Novel Datasets
 
-The latest research can be found at conferences such as ISMIR or ICASSP. You can also check final projects from the previous years 
+The latest research can be found at conferences such as ISMIR or ICASSP. 
+
+You can also check final projects from the previous years: 
 - [2019 Final projects](https://mac.kaist.ac.kr/~juhan/gct634/2019/final.html)
 - [2018 Final Projects](https://mac.kaist.ac.kr/~juhan/gct634/2018/final.html)
 
@@ -34,13 +36,13 @@ Feel free to request a meeting with TAs or professor to get help about your fina
 Briefly write the introduction, related works and any progress in the first page of the final report. 
 
 ### 6. Final Presentation
-- The length is expected to be 5 minutes
+- The length is expected to be about 5 minutes
 - Either video recording or zoom live (TBD)
 
 ### 7. Final Report
-- Use the template (WORD or Latex format)
+- Use the provided template (WORD or Latex format)
 - The length is expected to be 3-4 pages including references
-- The last section must be dedicated to describe the contribution of each team members (who did what)
+- **The last section must be dedicated to describe the contribution of each team members (who did what)**
 
 ### *** Important Dates ***
 - Nov 23 (Mon) - 27(Fri): Meeting with Professor
