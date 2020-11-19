@@ -37,7 +37,7 @@ Briefly write the introduction, related works and any progress in the first page
 
 ### 6. Final Presentation
 - The length is expected to be about 5 minutes
-- Either video recording or zoom live (TBD)
+- Live presentation on Zoom
 
 ### 7. Final Report
 - Use the provided template (WORD or Latex format)
@@ -47,6 +47,6 @@ Briefly write the introduction, related works and any progress in the first page
 ### *** Important Dates ***
 - Nov 23 (Mon) - 27(Fri): Meeting with Professor
 - Dec 4 (Fri): Milestone due 
-- Dec 17 (Thu): Final presentation  
+- Dec 17 (Thu): Final presentation 
 - Dec 18 (Fri): Final report due
 
