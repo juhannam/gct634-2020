@@ -2,7 +2,7 @@
 
 
 ### 1. Team Building
-Find classmates to form a final project team. One team can include up to members.
+Find classmates to form a final project team. One team can include up to 3 members.
 
 ### 2. Topic Selection
 You can select any topic within the scope of music and audio research. Possible topics include
