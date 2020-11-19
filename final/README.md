@@ -28,15 +28,23 @@ The latest research can be found at conferences such as ISMIR or ICASSP. You can
 Once you form a team and select a topic, make an appointment with Prof. Juhan Nam. His available time slots are listed at this [link](https://tinyurl.com/y5xyzq7v). 
 
 ### 4. Ask Professor and TAs
-You can request a meeting with TAs or professor.  
+Feel free to request a meeting with TAs or professor to get help about your final project.
 
-### 5. Final Presentation
+### 5. Milestone
+Briefly write the introduction, related works and any progress in the first page of the final report. 
 
-### 6. Final Report
-- 
+### 6. Final Presentation
+- The length is expected to be 5 minutes
+- Either video recording or zoom live (TBD)
 
+### 7. Final Report
+- Use the template (WORD or Latex format)
+- The length is expected to be 3-4 pages including references
+- The last section must be dedicated to describe the contribution of each team members (who did what)
 
 ### *** Important Dates ***
 - Nov 23 (Mon) - 27(Fri): Meeting with Professor
+- Dec 4 (Fri): Milestone due 
 - Dec 17 (Thu): Final presentation  
-- Dec 18 (Fri): Final report due 
+- Dec 18 (Fri): Final report due
+
