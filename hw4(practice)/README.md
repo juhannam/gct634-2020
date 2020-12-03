@@ -31,6 +31,7 @@ The source code of the basic algorithm is provided. The base model uses an encod
 You'll need a DAW and a drum vsti to listen to the MIDI examples. If you don't have any DAW or Drum VSTI, you can download the free DAW reaper) and VSTi  Power drum kit) from the link below.
 
 http://reaper.fm/download.php
+
 https://www.powerdrumkit.com/download76187.php
 
 
