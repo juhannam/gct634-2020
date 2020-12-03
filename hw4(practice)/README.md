@@ -9,7 +9,7 @@ In this practice, we will use the Conditional Variational Auto-encoder to genera
 In this practice, we use the dataset we collected. The data size is 3 X 16 Matrix, where 3 represents Kick, Snare, and HH, and 16 represents 16th notes. If there is a drum in the beat, it is indicated as 1, and if not, it is indicated as 0. Also, to make the problem as simple as possible, we removed all the velocities.
 
 
-<center><img src="./assets/Matrix_example.png" width="300" height="300"></center>
+<center><img src="./assets/Matrix_example.png"></center>
 
 A total of 6016 drum patterns are used, and the number of data sets by genre is as follows.    'Rock', 1443 ,  'Metal', 1102 ,  'Funk', 963 ,  'Jazz', 603 ,  'Latin', 539 ,  'Pop', 537 ,   'Hip Hop', 324 ,  'Blues', 197 ,  'Military', 179 ,  'Country', 162 
 
