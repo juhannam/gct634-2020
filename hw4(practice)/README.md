@@ -18,7 +18,7 @@ Sampling example may not be good because the amount of dataset is not large enou
 [Magenta Groovae](https://magenta.tensorflow.org/datasets/groove)
 
 
-## Base code
+## Basic code
 The source code of the basic algorithm is provided. The base model uses an encoder and decoder based on MLP.
 
 * def train : Training function, png files for comparing the original matrix and the reconstruction matrix is saved.
